@@ -7,11 +7,42 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
-    <div class="wrapper">
-        <header class="header">
-            <img src="./images/header-logo.png" alt="logo image" class="header__logo">
-        </header>
-    </div>
-    <script src="./scripts/popup.js"></script>
+<div class="wrapper">
+    <header class="header">
+        <img src="./images/header-logo.png" alt="logo image" class="header__logo">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__avatar"></div>
+            <div class="profile__info">
+                <h1 class="profile__hero">Jacques Cousteau
+                    <button class="button profile__button-unusual">
+                        <img class="profile__image-btn-edit" src="./images/button-edit.svg" alt="button edit">
+                    </button>
+                </h1>
+                <p class="profile__role">Explorer</p>
+            </div>
+            <button class="button profile__button">
+                <img class="profile__image-btn-add" src="./images/button-add.svg" alt="button add">
+            </button>
+        </section>
+    </main>
+</div>
+<div class="popup popup_opened">
+    <form class="popup__container">
+        <h2 class="popup__title">Edit profile</h2>
+        <label for="name" class="popup__label"></label>
+        <input type="text" class="popup__item" id="name" name="name"
+               placeholder="Name" required>
+        <label for="about" class="popup__label"></label>
+        <input type="text" class="popup__item" id="about" name="about-me"
+               placeholder="About me" required>
+        <input type="submit" value="Save">
+    </form>
+    <button class="button popup__button">
+        <img class="popup__button-cancel" src="./images/button-cancel.svg" alt="button cancel">
+    </button>
+</div>
+<script src="./scripts/popup.js"></script>
 </body>
 </html>
