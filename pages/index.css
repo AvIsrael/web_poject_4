@@ -22,6 +22,11 @@
     margin: 0 200px;
 }
 
+.button-reset {
+    background: none;
+    border: none;
+}
+
 .button {
     background-color: rgba(0 ,0 ,0 , 1);
     border-style: none;
@@ -84,7 +89,6 @@
     border: 2px solid #fff;
     margin-left: auto;
     cursor: pointer;
-
 }
 
 .profile__button-unusual {
@@ -93,7 +97,27 @@
 }
 
 .popup {
+    width: 100%;
+    height: 100%;
     display: none;
+}
+
+.popup_opened{
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.popup__container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+    align-items: center;
     background-color: #fff;
     color: #000;
     border-radius: 10px;
@@ -102,23 +126,36 @@
     left: 50%;
     height: 330px;
     width: 430px;
-    margin-top: -175px;
+    margin-top: -165px;
     margin-left: -215px;
     padding: 0 36px;
 }
 
-.popup_opened{
-    /*display: flex;*/
-}
 
 .popup__item {
-    outline: none;
+    border: none;
+}
+
+.popup__button-smbt {
+    border: none;
+    text-decoration: 0;
+}
+
+.popup__button {
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    cursor: pointer;
+}
+
+.popup__button:hover {
+    opacity: .6;
 }
 
 .popup__button-cancel {
-    position: fixed;
-    z-index: 3;
-    color: #000;
+    height: 40px;
+    width: 100%;
+    color: transparent;
 }
 
 .elements {
@@ -150,8 +187,8 @@
 .elements__info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #FFF;
-
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -169,15 +206,24 @@
 }
 
 .elements__button-heart {
+    background-image: url("../images/button-heart.svg");
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 19px;
     padding: 0;
     border: none;
-    background-color: white;
+    background-color: unset;
     margin-right: 15px;
 }
 
 .elements__button-heart:hover {
     opacity: 0.5;
     cursor: pointer;
+}
+
+.elements__button-heart:active {
+    background-image: url("../images/button-heart_active.svg");
+    opacity: 1;
 }
 
 .footer {
