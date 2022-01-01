@@ -38,7 +38,6 @@
 }
 
 .header {
-    /*margin: 0;*/
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
@@ -67,16 +66,21 @@
     align-self: flex-start;
 }
 
+.profile__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin: 22px 0 0 0;*/
+}
+
 .profile__hero {
-    font-family: Inter, serif;
     font-weight: 500;
     line-height: 48px;
     font-size: 42px;
-    margin: 22px 0 0 0;
+    margin: 22px 18px 0 0;
 }
 
 .profile__role {
-    font-family: Inter, serif;
     font-weight: 400;
     line-height: 22px;
     font-size: 18px;
@@ -92,8 +96,17 @@
 }
 
 .profile__button-unusual {
-    align-self: flex-start;
-    margin-left: 18px;
+    align-self: center;
+    padding-top: 13px;
+    height: 24px;
+    width: 24px;
+    line-height: 22px;
+}
+
+.profile__image-btn-edit {
+    height: 24px;
+    width: 24px;
+    position: relative;
 }
 
 .popup {
@@ -117,33 +130,63 @@
     display: flex;
     justify-content: flex-start;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex-start;
     background-color: #fff;
     color: #000;
     border-radius: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 330px;
     width: 430px;
     margin-top: -165px;
     margin-left: -215px;
     padding: 0 36px;
 }
 
+.popup__title {
+    margin: 34px 0 54px 0;
+    line-height: 29px;
+    font-size: 24px;
+    font-weight: 900;
+}
 
 .popup__item {
     border: none;
+    border-bottom: 1px solid rgba(0, 0,0, .2);
+    width: 100%;
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 0 14px 0;
+}
+
+.popup__item:first-of-type {
+    margin-bottom: 30px;
 }
 
 .popup__button-smbt {
-    border: none;
+    margin-top: 48px;
+    margin-bottom: 36px;
+    padding: 14px 0 18px 0;
+    width: 100%;
+    border-style: none;
     text-decoration: 0;
+    line-height: 22px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.popup__button-smbt:hover {
+    opacity: .8;
+    cursor: pointer;
 }
 
 .popup__button {
     position: absolute;
-    top: -45px;
+    top: -55px;
     right: -45px;
     cursor: pointer;
 }

@@ -15,11 +15,12 @@
         <section class="profile">
             <div class="profile__avatar"></div>
             <div class="profile__info">
-                <h1 class="profile__hero">Jacques Cousteau
+                <div class="profile__content">
+                    <h1 class="profile__hero">Jacques Cousteau</h1>
                     <button class="button profile__button-unusual">
                         <img class="profile__image-btn-edit" src="./images/button-edit.svg" alt="button edit">
                     </button>
-                </h1>
+                </div>
                 <p class="profile__role">Explorer</p>
             </div>
             <button class="button profile__button">
@@ -69,7 +70,7 @@
     </main>
 
     <div class="popup">
-        <form class="popup__container">
+        <form class="popup__container" id="formElement">
             <h2 class="popup__title">Edit profile</h2>
             <label for="name" class="popup__label"></label>
             <input type="text" class="popup__item" id="name" name="name"
