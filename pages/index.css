@@ -22,6 +22,20 @@
     margin: 0 200px;
 }
 
+@media screen and (max-width: 1279px){
+    .wrapper {
+        max-width: min-content;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .wrapper {
+        max-width: none;
+        margin: 0;
+    }
+}
+
 .button-reset {
     background: none;
     border: none;
@@ -47,12 +61,29 @@
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .header__logo {
+        margin: 28px 0 32px 27px;
+    }
+
+}
+
 .profile {
     margin-top: 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
+
+@media screen and (max-width: 767px) {
+    .profile {
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin-top: 42px;
+    }
+}
+
+
 
 .profile__avatar {
     content: url("../images/profile-image.jpg");
@@ -66,11 +97,23 @@
     align-self: flex-start;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile__info {
+        max-width: 282px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile__info {
+        margin: 30px auto 0;
+    }
+}
+
+
 .profile__content {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*margin: 22px 0 0 0;*/
 }
 
 .profile__hero {
@@ -80,11 +123,29 @@
     margin: 22px 18px 0 0;
 }
 
+@media screen and (max-width: 767px) {
+    .profile__hero {
+        margin: 0 10px 0 0;
+        line-height: 27px;
+        font-size: 22px;
+    }
+}
+
+
 .profile__role {
     font-weight: 400;
     line-height: 22px;
     font-size: 18px;
     margin: 16px 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__role {
+        line-height: 17px;
+        font-size: 14px;
+        margin: 14px auto 0;
+        text-align: center;
+    }
 }
 
 .profile__button {
@@ -95,6 +156,20 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile__button {
+        margin-left: 25px;
+        width: 282px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile__button {
+        margin: 36px auto 36px;
+        width: 282px;
+    }
+}
+
 .profile__button-unusual {
     align-self: center;
     padding-top: 13px;
@@ -103,11 +178,27 @@
     line-height: 22px;
 }
 
+@media screen and (max-width: 767px) {
+    .profile__button-unusual {
+        padding: 0;
+        height: 18px;
+        width: 18px;
+    }
+}
+
 .profile__image-btn-edit {
     height: 24px;
     width: 24px;
     position: relative;
 }
+
+@media screen and (max-width: 767px) {
+    .profile__image-btn-edit {
+        height: 18px;
+        width: 18px;
+    }
+}
+
 
 .popup {
     width: 100%;
@@ -143,6 +234,17 @@
     padding: 0 36px;
 }
 
+@media screen and (max-width: 767px) {
+    .popup__container {
+        top: 259px;
+        left: 50%;
+        width: 282px;
+        height: 322px;
+        margin-left: -141px;
+        padding: 0 22px;
+    }
+}
+
 .popup__title {
     margin: 34px 0 54px 0;
     line-height: 29px;
@@ -152,7 +254,7 @@
 
 .popup__item {
     border: none;
-    border-bottom: 1px solid rgba(0, 0,0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
     width: 100%;
     line-height: 17px;
     font-size: 14px;
@@ -191,6 +293,15 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 767px) {
+    .popup__button {
+        height: 26px;
+        width: 26px;
+        top: -30px;
+        right: 0;
+    }
+}
+
 .popup__button:hover {
     opacity: .6;
 }
@@ -205,6 +316,12 @@
     margin-top: 50px;
 }
 
+@media screen and (max-width: 767px) {
+    .elements{
+        margin: 0 19px;
+    }
+}
+
 .elements__items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -216,15 +333,43 @@
     margin: 0;
 }
 
+@media screen and (max-width: 1279px) {
+    .elements__items {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .elements__items {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
 .elements__item {
     border-radius: 10px;
-    width: 282px;
+    width: 100%;
     height: fit-content;
     color: #000;
 }
 
+@media screen and (max-width: 1279px) {
+    .elements__item {
+       max-width: none;
+    }
+}
+
 .elements-grid__image {
     vertical-align: bottom;
+}
+
+@media screen and (max-width: 1279px) {
+    .elements-grid__image {
+        width: 100%;
+    }
 }
 
 .elements__info {
@@ -271,6 +416,12 @@
 
 .footer {
     margin: 67px 0 60px 0;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        margin: 50px 19px 36px;
+    }
 }
 
 .footer__copyright {
