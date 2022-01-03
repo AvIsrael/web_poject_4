@@ -1,0 +1,12 @@
+.elements__item {
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    color: #000;
+}
+
+@media screen and (max-width: 1279px) {
+    .elements__item {
+        max-width: none;
+    }
+}
