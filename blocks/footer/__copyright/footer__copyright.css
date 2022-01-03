@@ -6,3 +6,10 @@
     color: rgba(84, 84, 84, 1);
     margin: 0;
 }
+
+@media screen and (max-width: 320px){
+    .footer__copyright {
+        line-height: 17px;
+        font-size: 14px;
+    }
+}

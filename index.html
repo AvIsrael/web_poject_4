@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Around The U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./pages/index.css"/>
 </head>
 <body class="page">
 <div class="wrapper">
     <header class="header">
-        <img src="./images/header-logo.png" alt="logo image" class="header__logo">
+        <img src="./images/header-logo.svg" alt="logo image" class="header__logo"/>
     </header>
     <main class="content">
         <section class="profile">
@@ -17,71 +17,71 @@
             <div class="profile__info">
                 <div class="profile__content">
                     <h1 class="profile__hero">Jacques Cousteau</h1>
-                    <button class="button profile__button-unusual">
-                        <img class="profile__image-btn-edit" src="./images/button-edit.svg" alt="button edit">
+                    <button class="button profile__button-unusual" type="button" aria-label="edit">
                     </button>
                 </div>
                 <p class="profile__role">Explorer</p>
             </div>
-            <button class="button profile__button">
-                <img class="profile__image-btn-add" src="./images/button-add.svg" alt="button add">
+            <button class="button profile__button" type="button" aria-label="add">
             </button>
         </section>
         <section class="elements">
             <ul class="elements__items">
                 <li class="elements__item">
-                    <img src="./images/image-1.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Yosemite Valley</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-1.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Yosemite Valley</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
                 <li class="elements__item">
-                    <img src="./images/image-2.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Lake Louise</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-2.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Lake Louise</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
                 <li class="elements__item">
-                    <img src="./images/image-3.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Bald Mountains</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-3.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Bald Mountains</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
                 <li class="elements__item">
-                    <img src="./images/image-4.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Latemar</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-4.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Latemar</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
                 <li class="elements__item">
-                    <img src="./images/image-5.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Vanoise Nationa...</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-5.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Vanoise Nationa...</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
                 <li class="elements__item">
-                    <img src="./images/image-6.png" alt="album photo" class="elements__grid-image">
-                    <div class="elements__info"><p class="elements__description">Lago di Braies</p>
-                        <button class="elements__button-heart">
-                        </button></div>
+                    <img src="./images/image-6.png" alt="album photo" class="elements__grid-image"/>
+                    <div class="elements__info">
+                        <h2 class="elements__description">Lago di Braies</h2>
+                        <button class="elements__button-heart"></button>
+                    </div>
                 </li>
             </ul>
         </section>
     </main>
     <div class="popup">
-        <form class="popup__container" id="formElement">
+        <div class="popup__container" >
             <h2 class="popup__title">Edit profile</h2>
-            <label for="name" class="popup__label"></label>
-            <input type="text" class="popup__item" id="name" name="name"
-                   placeholder="Name" required>
-            <label for="about" class="popup__label"></label>
-            <input type="text" class="popup__item" id="about" name="about-me"
-                   placeholder="About me" required>
-            <input type="submit" class="popup__button-sbmt" value="Save">
-            <button class="button-reset popup__button" type="button">
-                <img class="popup__button-cancel" src="./images/button-cancel.svg" alt="button cancel">
-            </button>
-        </form>
+            <form class="popup__form" id="formElement" name="edit data">
+                <input type="text" class="popup__item" id="name" name="name" placeholder="Name" required/>
+                <input type="text" class="popup__item" id="about" name="about-me" placeholder="About me" required/>
+                <input type="submit" class="popup__button-sbmt" value="Save"/>
+                <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
+            </form>
+        </div>
     </div>
     <footer class="footer">
         <p class="footer__copyright">&#64; 2021 Around The U.S.</p>

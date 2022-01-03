@@ -1,14 +1,18 @@
 .profile__button-unusual {
-    align-self: center;
-    padding-top: 13px;
+    background-image: url("../../../images/button-edit.svg");
+    margin-top: 24px;
     height: 24px;
     width: 24px;
-    line-height: 22px;
+}
+
+.profile__button-unusual:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
     .profile__button-unusual {
         padding: 0;
+        margin: 0;
         height: 18px;
         width: 18px;
     }
