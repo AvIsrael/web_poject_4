@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 767px) {
     .popup__button-sbmt {
-        margin: 46px auto 0;
+        margin: 46px auto 25px;
         padding: 14px 14px;
     }
 }
