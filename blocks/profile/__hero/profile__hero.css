@@ -6,6 +6,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    max-width: 415px;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__hero {
+        max-width: 225px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -13,5 +20,6 @@
         margin: 0;
         line-height: 27px;
         font-size: 22px;
+        max-width: 196px;
     }
 }
