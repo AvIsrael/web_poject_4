@@ -8,4 +8,4 @@
 
 ### *Added adaptive design for different screen dimensions.* 
 
-## Link to project: https://avisrael.github.io/web_poject_4/
+## Link to project: https://avisrael.github.io/web_project_4/
