@@ -60,6 +60,10 @@ initialCards.forEach((item) => {
     delButton.classList.add("elements__button-delete");
     delButton.classList.add("button");
     delButton.type = `button`;
+    delButton.addEventListener('click', (evt) => {
+        const listItem = evt.target.closest(".elements__item");
+        listItem.remove();
+    });
     itemElement.append(delButton);
 
 
