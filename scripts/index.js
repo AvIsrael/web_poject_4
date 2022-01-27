@@ -1,10 +1,9 @@
-
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
 const formWindowViewer = document.getElementById("popup-viewer");
 
-const btnEdit = document.querySelector(".profile__button-unusual");
-const btnAdd = document.querySelector(".profile__button");
+const buttonEdit = document.querySelector(".profile__button-unusual");
+const buttonAdd = document.querySelector(".profile__button");
 
 const currentName = document.querySelector(".profile__hero");
 const currentRole = document.querySelector(".profile__role");
@@ -15,64 +14,72 @@ const formElementAdd = document.getElementById("formElementAdd");
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");
 const titleInput = document.getElementById("title");
-const imgInput = document.getElementById("image-link");
+const imageInput = document.getElementById("image-link");
 const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
 const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
 
-const btnCancelEdit = formElementEdit.querySelector(".popup__button");
-const btnCancelAdd = formWindowAdd.querySelector(".popup__button")
-const btnCancelView = formWindowViewer.querySelector(".popup__button");
+const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
+const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
+const buttonCancelView = formWindowViewer.querySelector(".popup__button");
+const cardContainer = document.querySelector(".elements__items");
 
-//Start of popup form for Edit btn
+//Opening popup
+const openModalWindow = (modalWindow) => {
+    modalWindow.classList.add("popup_opened");
+}
+//Closing popup
+const closeModalWindow = (modalWindow) => {
+    modalWindow.classList.remove("popup_opened");
+}
+
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
     currentName.textContent = nameInput.value;
     currentRole.textContent = jobInput.value;
-    formWindowEdit.classList.remove("popup_opened");
-    }
+    closeModalWindow(formWindowEdit);
+}
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
-const setInitValueEdit = () => {
-    formWindowEdit.classList.add("popup_opened");
+const openEditProfilePopup = () => {
+    openModalWindow(formWindowEdit);
     nameInput.value = currentName.textContent;
     jobInput.value = currentRole.textContent;
 }
 
-btnCancelEdit.addEventListener("click", () => {
-   formWindowEdit.classList.remove("popup_opened");
+buttonCancelEdit.addEventListener("click", () => {
+    formWindowEdit.classList.remove("popup_opened");
 });
-btnEdit.addEventListener('click', setInitValueEdit);
-//End of popup form for Edit btn
+buttonEdit.addEventListener('click', openEditProfilePopup);
 
 //Popup form for Add button
 const handleProfileFormAdd = (evt) => {
     evt.preventDefault();
-    addNewCard(titleInput.value, imgInput.value);
-    formWindowAdd.classList.remove("popup_opened");
+    closeModalWindow(formWindowAdd);
+    cardContainer.append(createNewCard(titleInput.value, imageInput.value));
 }
 formElementAdd.addEventListener('submit', handleProfileFormAdd);
 
-const setInitValueAdd = () => {
-    formWindowAdd.classList.add("popup_opened");
-    titleInput.value = "";
-    imgInput.value = "";
+const openAddCardPopup = () => {
+    openModalWindow(formWindowAdd);
+    formElementAdd.reset();
 }
 
-btnCancelAdd.addEventListener('click', () =>{
-    formWindowAdd.classList.remove("popup_opened");
+buttonCancelAdd.addEventListener('click', () => {
+    closeModalWindow(formWindowAdd);
 });
-btnAdd.addEventListener('click', setInitValueAdd);
+buttonAdd.addEventListener('click', openAddCardPopup);
 //End of form Add button
 
 //Popup Viewer
-btnCancelView.addEventListener("click", () => {
-    formWindowViewer.classList.remove("popup_opened");
+buttonCancelView.addEventListener("click", () => {
+    closeModalWindow(formWindowViewer);
 });
 
-const imageFullSize = (text, link) => {
-    formWindowViewer.classList.add("popup_opened")
+const openImagePreview = (text, link) => {
+    openModalWindow(formWindowViewer);
     viewPlaceName.innerText = text;
     viewPlaceImg.src = link;
+    viewPlaceImg.alt = text;
 }
 
 //Creating list items with JS
@@ -102,56 +109,32 @@ const initialCards = [
         link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
 ];
-
-const listElements = document.createElement("ul");
-listElements.classList.add("elements__items");
-
-const addNewCard = (name, link) => {
-    const itemElement = document.createElement("li");
-    itemElement.classList.add("elements__item");
-
-    const imgElement = document.createElement("img");
-    imgElement.classList.add("elements__grid-image");
-    imgElement.src = link;
-    itemElement.append(imgElement);
-    imgElement.addEventListener('click', () => {
-      imageFullSize(name, link);
+//Creating add new card function
+const cardTemplate = document.getElementById("card").content.querySelector(".elements__item");
+const createNewCard = (name, link) => {
+    const cloneCard = cardTemplate.cloneNode(true);
+    const imageSource = cloneCard.querySelector(".elements__grid-image");
+    imageSource.src = link;
+    imageSource.alt = name;
+    imageSource.addEventListener('click', () => {
+        openImagePreview(name, link);
     });
-
-    const divElement = document.createElement("div");
-    divElement.classList.add("elements__info");
-    itemElement.append(divElement);
-
-    const textElement = document.createElement("h2");
-    textElement.classList.add("elements__description");
-    const textInElement = document.createTextNode(name);
-    textElement.append(textInElement);
-    divElement.append(textElement);
-
-    //Like button
-    const btnElement = document.createElement("button");
-    btnElement.classList.add("elements__button-heart");
-    btnElement.type = `button`;
-    btnElement.addEventListener('click', (evt) => {
-        evt.target.classList.toggle("elements__button-heart_active");
-    });
-    divElement.append(btnElement);
-    //Delete card button
-    const delButton = document.createElement("button");
-    delButton.classList.add("elements__button-delete");
-    delButton.classList.add("button");
-    delButton.type = `button`;
-    delButton.addEventListener('click', (evt) => {
+    const cardTitle = cloneCard.querySelector(".elements__description");
+    cardTitle.textContent = name;
+    const deleteButton = cloneCard.querySelector(".elements__button-delete");
+    deleteButton.addEventListener('click', (evt) => {
         const listItem = evt.target.closest(".elements__item");
         listItem.remove();
     });
-    itemElement.append(delButton);
-    listElements.append(itemElement);
+    const likeButton = cloneCard.querySelector(".elements__button-heart");
+    likeButton.addEventListener('click', (evt) => {
+        evt.target.classList.toggle("elements__button-heart_active");
+    });
+    return cloneCard;
 }
-
-//Creating content for each card
-initialCards.forEach((item) => {
-    addNewCard(item.name, item.link);
-});
-const sectionElements = document.querySelector(".elements");
-sectionElements.append(listElements);
+const cardGridAmount = () => {
+    initialCards.forEach((item) => {
+        cardContainer.append(createNewCard(item.name, item.link));
+    });
+}
+cardGridAmount();
