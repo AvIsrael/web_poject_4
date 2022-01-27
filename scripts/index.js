@@ -1,37 +1,79 @@
-//for edit form
+
+const formWindowEdit = document.getElementById("popup-edit");
+const formWindowAdd = document.getElementById("popup-add");
+const formWindowViewer = document.getElementById("popup-viewer");
+
 const btnEdit = document.querySelector(".profile__button-unusual");
-const index = document.querySelector(".popup");
+const btnAdd = document.querySelector(".profile__button");
+
 const currentName = document.querySelector(".profile__hero");
 const currentRole = document.querySelector(".profile__role");
-const formElement = document.querySelector("#formElement");
-const nameInput = document.querySelector("#name");
-const jobInput = document.querySelector("#about");
-const btnCancel = document.querySelector(".popup__button");
-const docBody = document.querySelector(".wrapper")
+
+const formElementEdit = document.getElementById("formElementEdit");
+const formElementAdd = document.getElementById("formElementAdd");
+
+const nameInput = document.getElementById("name");
+const jobInput = document.getElementById("about");
+const titleInput = document.getElementById("title");
+const imgInput = document.getElementById("image-link");
+const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
+const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
+
+const btnCancelEdit = formElementEdit.querySelector(".popup__button");
+const btnCancelAdd = formWindowAdd.querySelector(".popup__button")
+const btnCancelView = formWindowViewer.querySelector(".popup__button");
 
 //Start of popup form for Edit btn
-    function handleProfileFormSubmit(evt) {
-        evt.preventDefault();
-        currentName.textContent = nameInput.value;
-        currentRole.textContent = jobInput.value;
-        index.classList.remove("popup_opened");
+const handleProfileFormSubmit = (evt) => {
+    evt.preventDefault();
+    currentName.textContent = nameInput.value;
+    currentRole.textContent = jobInput.value;
+    formWindowEdit.classList.remove("popup_opened");
     }
+formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
-formElement.addEventListener('submit', handleProfileFormSubmit);
-function setInitValue() {
-    index.classList.add("popup_opened");
+const setInitValueEdit = () => {
+    formWindowEdit.classList.add("popup_opened");
     nameInput.value = currentName.textContent;
     jobInput.value = currentRole.textContent;
 }
 
-btnCancel.addEventListener("click", () => {
-    const index = document.querySelector(".popup");
-    index.classList.remove("popup_opened");
+btnCancelEdit.addEventListener("click", () => {
+   formWindowEdit.classList.remove("popup_opened");
 });
-
-btnEdit.addEventListener('click', setInitValue);
+btnEdit.addEventListener('click', setInitValueEdit);
 //End of popup form for Edit btn
 
+//Popup form for Add button
+const handleProfileFormAdd = (evt) => {
+    evt.preventDefault();
+    addNewCard(titleInput.value, imgInput.value);
+    formWindowAdd.classList.remove("popup_opened");
+}
+formElementAdd.addEventListener('submit', handleProfileFormAdd);
+
+const setInitValueAdd = () => {
+    formWindowAdd.classList.add("popup_opened");
+    titleInput.value = "";
+    imgInput.value = "";
+}
+
+btnCancelAdd.addEventListener('click', () =>{
+    formWindowAdd.classList.remove("popup_opened");
+});
+btnAdd.addEventListener('click', setInitValueAdd);
+//End of form Add button
+
+//Popup Viewer
+btnCancelView.addEventListener("click", () => {
+    formWindowViewer.classList.remove("popup_opened");
+});
+
+const imageFullSize = (text, link) => {
+    formWindowViewer.classList.add("popup_opened")
+    viewPlaceName.innerText = text;
+    viewPlaceImg.src = link;
+}
 
 //Creating list items with JS
 const initialCards = [
@@ -64,15 +106,17 @@ const initialCards = [
 const listElements = document.createElement("ul");
 listElements.classList.add("elements__items");
 
-//Creating content for each card
-initialCards.forEach((item) => {
+const addNewCard = (name, link) => {
     const itemElement = document.createElement("li");
     itemElement.classList.add("elements__item");
 
     const imgElement = document.createElement("img");
     imgElement.classList.add("elements__grid-image");
-    imgElement.src = item.link;
+    imgElement.src = link;
     itemElement.append(imgElement);
+    imgElement.addEventListener('click', () => {
+      imageFullSize(name, link);
+    });
 
     const divElement = document.createElement("div");
     divElement.classList.add("elements__info");
@@ -80,7 +124,7 @@ initialCards.forEach((item) => {
 
     const textElement = document.createElement("h2");
     textElement.classList.add("elements__description");
-    const textInElement = document.createTextNode(item.name);
+    const textInElement = document.createTextNode(name);
     textElement.append(textInElement);
     divElement.append(textElement);
 
@@ -103,28 +147,11 @@ initialCards.forEach((item) => {
     });
     itemElement.append(delButton);
     listElements.append(itemElement);
+}
+
+//Creating content for each card
+initialCards.forEach((item) => {
+    addNewCard(item.name, item.link);
 });
 const sectionElements = document.querySelector(".elements");
 sectionElements.append(listElements);
-
-//Creating popup form and add
-function addNewCard() {
-    const formAdd = index.cloneNode(true);
-    index.remove();
-    formAdd.classList.add("popup_opened");
-    docBody.append(formAdd);
-    nameInput.value = "";
-    jobInput.value = "";
-    nameInput.placeholder = "Title";
-    jobInput.placeholder = "Image link";
-    changeFormValues("Add card");
-}
-const btnAdd = document.querySelector(".profile__button");
-btnAdd.addEventListener('click', addNewCard);
-
-
-function changeFormValues(header) {
-    const popupHeader = document.querySelector(".popup__title");
-    console.log(popupHeader);
-    popupHeader.textContent = header;
-}

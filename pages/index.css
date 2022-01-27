@@ -32,3 +32,7 @@
 @import url(../blocks/elements/__button-delete/elements__button-delete.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/popup/__viewer-image/popup__viewer-image.css);
+@import url(../blocks/popup/__btn-cancel/popup__btn-cancel.css);
+@import url(../blocks/popup/__viewer-wrapper/popup__viewer-wrapper.css);
+@import url(../blocks/popup/__viewer-text/popup__viewer-text.css);
