@@ -7,7 +7,6 @@
 >* Popup viewer for viewing fullsize images;
 >* Implemented deleting cards on pushing bin icon;
 >* Added function that change state of like icon.
->* Added function that change state of like icon.
 
 
 ### *Added adaptive design for different screen dimensions.* 

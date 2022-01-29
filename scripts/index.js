@@ -47,7 +47,7 @@ const openEditProfilePopup = () => {
 }
 
 buttonCancelEdit.addEventListener("click", () => {
-    formWindowEdit.classList.remove("popup_opened");
+    closeModalWindow(formWindowEdit);
 });
 buttonEdit.addEventListener('click', openEditProfilePopup);
 
@@ -55,7 +55,7 @@ buttonEdit.addEventListener('click', openEditProfilePopup);
 const handleProfileFormAdd = (evt) => {
     evt.preventDefault();
     closeModalWindow(formWindowAdd);
-    cardContainer.append(createNewCard(titleInput.value, imageInput.value));
+    cardContainer.prepend(createNewCard(titleInput.value, imageInput.value));
 }
 formElementAdd.addEventListener('submit', handleProfileFormAdd);
 
@@ -79,7 +79,7 @@ const openImagePreview = (text, link) => {
     openModalWindow(formWindowViewer);
     viewPlaceName.innerText = text;
     viewPlaceImg.src = link;
-    viewPlaceImg.alt = text;
+    viewPlaceImg.alt = `Photo of ${text}`;
 }
 
 //Creating list items with JS
@@ -112,26 +112,31 @@ const initialCards = [
 //Creating add new card function
 const cardTemplate = document.getElementById("card").content.querySelector(".elements__item");
 const createNewCard = (name, link) => {
-    const cloneCard = cardTemplate.cloneNode(true);
-    const imageSource = cloneCard.querySelector(".elements__grid-image");
+    const card = cardTemplate.cloneNode(true);
+    const imageSource = card.querySelector(".elements__grid-image");
     imageSource.src = link;
-    imageSource.alt = name;
+    imageSource.alt = `Photo of ${name}`;
     imageSource.addEventListener('click', () => {
         openImagePreview(name, link);
     });
-    const cardTitle = cloneCard.querySelector(".elements__description");
+
+    const cardTitle = card.querySelector(".elements__description");
     cardTitle.textContent = name;
-    const deleteButton = cloneCard.querySelector(".elements__button-delete");
+
+    const deleteButton = card.querySelector(".elements__button-delete");
     deleteButton.addEventListener('click', (evt) => {
         const listItem = evt.target.closest(".elements__item");
         listItem.remove();
     });
-    const likeButton = cloneCard.querySelector(".elements__button-heart");
+
+    const likeButton = card.querySelector(".elements__button-heart");
     likeButton.addEventListener('click', (evt) => {
         evt.target.classList.toggle("elements__button-heart_active");
     });
-    return cloneCard;
+
+    return card;
 }
+
 const cardGridAmount = () => {
     initialCards.forEach((item) => {
         cardContainer.append(createNewCard(item.name, item.link));
