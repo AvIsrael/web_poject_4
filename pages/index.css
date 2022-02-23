@@ -36,3 +36,6 @@
 @import url(../blocks/popup/__btn-cancel/popup__btn-cancel.css);
 @import url(../blocks/popup/__viewer-wrapper/popup__viewer-wrapper.css);
 @import url(../blocks/popup/__viewer-text/popup__viewer-text.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__error/_visible/popup__error_visible.css);
+@import url(../blocks/popup/__button-sbmt/_type/popup__button-sbmt_disabled.css);
