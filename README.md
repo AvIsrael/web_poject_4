@@ -1,4 +1,4 @@
-# **Web project 4-5**
+# **Web project 4-6**
 ## Around The U.S.  :metal:
 
 > **In *Project #4-5* using HTML (flex, grid, bem), CSS, JS was created:**
@@ -7,6 +7,8 @@
 >* Popup viewer for viewing fullsize images;
 >* Implemented deleting cards on pushing bin icon;
 >* Added function that change state of like icon.
+>* Added function that validate forms...
+
 
 
 ### *Added adaptive design for different screen dimensions.* 
