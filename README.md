@@ -10,6 +10,7 @@
 >* Added function that validate forms...
 
 
+TODO not working inactive btn & mouseover
 
 ### *Added adaptive design for different screen dimensions.* 
 
