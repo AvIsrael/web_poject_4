@@ -1,46 +1,38 @@
+import {openModalWindow, closeModalWindow} from "./modalwindow.js";
+import {formValidator} from "./validate.js";
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
 const formWindowViewer = document.getElementById("popup-viewer");
-
 const buttonEdit = document.querySelector(".profile__button-unusual");
 const buttonAdd = document.querySelector(".profile__button");
-
 const currentName = document.querySelector(".profile__hero");
 const currentRole = document.querySelector(".profile__role");
-
 const formElementEdit = document.getElementById("formElementEdit");
 const formElementAdd = document.getElementById("formElementAdd");
-
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");
 const titleInput = document.getElementById("title");
 const imageInput = document.getElementById("image-link");
 const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
 const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
-
 const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardContainer = document.querySelector(".elements__items");
 
-//Opening popup
-const openModalWindow = (modalWindow) => {
-    modalWindow.classList.add("popup_opened");
-}
-//Closing popup
-const closeModalWindow = (modalWindow) => {
-    modalWindow.classList.remove("popup_opened");
-}
 
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
     currentName.textContent = nameInput.value;
     currentRole.textContent = jobInput.value;
     closeModalWindow(formWindowEdit);
+
 }
+
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
 const openEditProfilePopup = () => {
+    formElementEditValidator.resetInputs();
     openModalWindow(formWindowEdit);
     nameInput.value = currentName.textContent;
     jobInput.value = currentRole.textContent;
@@ -54,6 +46,7 @@ buttonEdit.addEventListener('click', openEditProfilePopup);
 //Popup form for Add button
 const handleProfileFormAdd = (evt) => {
     evt.preventDefault();
+    formElementAddValidator.resetWholeForm();
     closeModalWindow(formWindowAdd);
     cardContainer.prepend(createNewCard(titleInput.value, imageInput.value));
 }
@@ -143,3 +136,10 @@ const cardGridAmount = () => {
     });
 }
 cardGridAmount();
+
+const formElementAddValidator = formValidator(formElementAdd);
+formElementAddValidator.enableValidation();
+
+const formElementEditValidator = formValidator(formElementEdit);
+formElementEditValidator.enableValidation();
+
