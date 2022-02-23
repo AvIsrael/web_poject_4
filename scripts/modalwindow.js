@@ -15,6 +15,3 @@ function closeModalWindowByKey(evt) {
         closeModalWindow(popupOpened);
     }
 }
-
-
-

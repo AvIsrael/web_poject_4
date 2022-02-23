@@ -9,6 +9,8 @@ export const formValidator = (formElement) => {
     };
     const inputList = Array.from(formElement.querySelectorAll(validateSettings.inputSelector));
     const buttonElement = formElement.querySelector(validateSettings.submitButtonSelector);
+
+
     const showInputError = (inputElement) => {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(validateSettings.inputErrorClass);
@@ -50,6 +52,7 @@ export const formValidator = (formElement) => {
                 toggleButtonState();
             });
         });
+
     }
     const resetForm = () => {
         inputList.forEach((inputElement) => {
