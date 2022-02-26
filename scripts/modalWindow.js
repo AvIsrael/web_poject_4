@@ -2,11 +2,19 @@
 export const openModalWindow = (modalWindow) => {
     modalWindow.classList.add("popup_opened");
     document.addEventListener("keydown", closeModalWindowByKey);
+    document.addEventListener('mousedown', closeOverlay);
+
 }
 
 export const closeModalWindow = (modalWindow) => {
     modalWindow.classList.remove("popup_opened");
     document.removeEventListener("keydown", closeModalWindowByKey);
+}
+//
+const closeOverlay = (evt) => {
+    if (evt.target.classList.contains('popup')) {
+        closeModalWindow(evt.target);
+    }
 }
 
 function closeModalWindowByKey(evt) {

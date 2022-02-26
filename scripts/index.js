@@ -1,4 +1,4 @@
-import {openModalWindow, closeModalWindow} from "./modalwindow.js";
+import {closeModalWindow, openModalWindow} from "./modalWindow.js";
 import {formValidator} from "./validate.js";
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
@@ -18,21 +18,19 @@ const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
 const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
-const cardContainer = document.querySelector(".elements__items");
-
+const cardsContainer = document.querySelector(".elements__items");
 
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
     currentName.textContent = nameInput.value;
     currentRole.textContent = jobInput.value;
     closeModalWindow(formWindowEdit);
-
 }
 
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
 const openEditProfilePopup = () => {
-    formElementEditValidator.resetInputs();
+    formElementEditValidator.resetWholeForm();
     openModalWindow(formWindowEdit);
     nameInput.value = currentName.textContent;
     jobInput.value = currentRole.textContent;
@@ -44,13 +42,13 @@ buttonCancelEdit.addEventListener("click", () => {
 buttonEdit.addEventListener('click', openEditProfilePopup);
 
 //Popup form for Add button
-const handleProfileFormAdd = (evt) => {
+const handleAddCardFormSubmit = (evt) => {
     evt.preventDefault();
     formElementAddValidator.resetWholeForm();
     closeModalWindow(formWindowAdd);
-    cardContainer.prepend(createNewCard(titleInput.value, imageInput.value));
+    cardsContainer.prepend(createNewCard(titleInput.value, imageInput.value));
 }
-formElementAdd.addEventListener('submit', handleProfileFormAdd);
+formElementAdd.addEventListener('submit', handleAddCardFormSubmit);
 
 const openAddCardPopup = () => {
     openModalWindow(formWindowAdd);
@@ -106,10 +104,10 @@ const initialCards = [
 const cardTemplate = document.getElementById("card").content.querySelector(".elements__item");
 const createNewCard = (name, link) => {
     const card = cardTemplate.cloneNode(true);
-    const imageSource = card.querySelector(".elements__grid-image");
-    imageSource.src = link;
-    imageSource.alt = `Photo of ${name}`;
-    imageSource.addEventListener('click', () => {
+    const imageElement = card.querySelector(".elements__grid-image");
+    imageElement.src = link;
+    imageElement.alt = `Photo of ${name}`;
+    imageElement.addEventListener('click', () => {
         openImagePreview(name, link);
     });
 
@@ -130,15 +128,29 @@ const createNewCard = (name, link) => {
     return card;
 }
 
-const cardGridAmount = () => {
+const createInitialCards = () => {
     initialCards.forEach((item) => {
-        cardContainer.append(createNewCard(item.name, item.link));
+        cardsContainer.append(createNewCard(item.name, item.link));
     });
 }
-cardGridAmount();
+createInitialCards();
 
-const formElementAddValidator = formValidator(formElementAdd);
+const formElementAddValidator = formValidator(formElementAdd, {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__item",
+    submitButtonSelector: ".popup__button-sbmt",
+    inactiveButtonClass: "popup__button-sbmt_disabled",
+    inputErrorClass: "popup__item_type_error",
+    errorClass: "popup__error_visible",
+});
 formElementAddValidator.enableValidation();
 
-const formElementEditValidator = formValidator(formElementEdit);
+const formElementEditValidator = formValidator(formElementEdit, {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__item",
+    submitButtonSelector: ".popup__button-sbmt",
+    inactiveButtonClass: "popup__button-sbmt_disabled",
+    inputErrorClass: "popup__item_type_error",
+    errorClass: "popup__error_visible",
+});
 formElementEditValidator.enableValidation();
