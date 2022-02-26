@@ -19,6 +19,7 @@ const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
+
 const settingsValidator = {
     formSelector: ".popup__form",
     inputSelector: ".popup__item",

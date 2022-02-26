@@ -10,7 +10,7 @@ export const closeModalWindow = (modalWindow) => {
     document.removeEventListener("keydown", closeModalWindowByKey);
     document.removeEventListener('mousedown', closeOverlay);
 }
-//
+
 const closeOverlay = (evt) => {
     if (evt.target.classList.contains('popup')) {
         closeModalWindow(evt.target);
