@@ -19,6 +19,14 @@ const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
+const settingsValidator = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__item",
+    submitButtonSelector: ".popup__button-sbmt",
+    inactiveButtonClass: "popup__button-sbmt_disabled",
+    inputErrorClass: "popup__item_type_error",
+    errorClass: "popup__error_visible",
+}
 
 const handleProfileFormSubmit = (evt) => {
     evt.preventDefault();
@@ -52,7 +60,7 @@ formElementAdd.addEventListener('submit', handleAddCardFormSubmit);
 
 const openAddCardPopup = () => {
     openModalWindow(formWindowAdd);
-    formElementAdd.reset();
+    formElementAddValidator.resetWholeForm();
 }
 
 buttonCancelAdd.addEventListener('click', () => {
@@ -135,22 +143,8 @@ const createInitialCards = () => {
 }
 createInitialCards();
 
-const formElementAddValidator = formValidator(formElementAdd, {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__item",
-    submitButtonSelector: ".popup__button-sbmt",
-    inactiveButtonClass: "popup__button-sbmt_disabled",
-    inputErrorClass: "popup__item_type_error",
-    errorClass: "popup__error_visible",
-});
+const formElementAddValidator = formValidator(formElementAdd, settingsValidator);
 formElementAddValidator.enableValidation();
 
-const formElementEditValidator = formValidator(formElementEdit, {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__item",
-    submitButtonSelector: ".popup__button-sbmt",
-    inactiveButtonClass: "popup__button-sbmt_disabled",
-    inputErrorClass: "popup__item_type_error",
-    errorClass: "popup__error_visible",
-});
+const formElementEditValidator = formValidator(formElementEdit, settingsValidator);
 formElementEditValidator.enableValidation();

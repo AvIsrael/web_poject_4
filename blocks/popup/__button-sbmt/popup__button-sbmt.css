@@ -20,7 +20,7 @@
     }
 }
 
-.popup__button-sbmt:hover {
+.popup__button-sbmt:hover:not(:disabled) {
     opacity: .8;
     cursor: pointer;
 }
