@@ -13,4 +13,4 @@
 
 ### *Added adaptive design for different screen dimensions.* 
 
-##[Link to project: :rocket:](https://avisrael.github.io/web_project_4/)
+# [Link to project: :rocket:](https://avisrael.github.io/web_project_4/)
