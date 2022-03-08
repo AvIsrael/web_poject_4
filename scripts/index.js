@@ -1,25 +1,23 @@
-import {closeModalWindow, openModalWindow} from "./modalWindow.js";
+import {closeModalWindow, openModalWindow, handleProfileFormSubmit, openEditProfilePopup, openImagePreview} from "./utils.js";
 import {FormValidator} from "./FormValidate.js";
 import {Card} from "./Card.js"
-const formWindowEdit = document.getElementById("popup-edit");
-const formWindowAdd = document.getElementById("popup-add");
-const formWindowViewer = document.getElementById("popup-viewer");
+
+export const formWindowEdit = document.getElementById("popup-edit");
+export const formWindowAdd = document.getElementById("popup-add");
+export const formWindowViewer = document.getElementById("popup-viewer");
 const buttonEdit = document.querySelector(".profile__button-unusual");
 const buttonAdd = document.querySelector(".profile__button");
-const currentName = document.querySelector(".profile__hero");
-const currentRole = document.querySelector(".profile__role");
 const formElementEdit = document.getElementById("formElementEdit");
 const formElementAdd = document.getElementById("formElementAdd");
-const nameInput = document.getElementById("name");
-const jobInput = document.getElementById("about");
 const titleInput = document.getElementById("title");
 const imageInput = document.getElementById("image-link");
-const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
-const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
 const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
+export const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
+export const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
+
 
 const settingsValidator = {
     formSelector: ".popup__form",
@@ -30,25 +28,12 @@ const settingsValidator = {
     errorClass: "popup__error_visible",
 }
 
-const handleProfileFormSubmit = (evt) => {
-    evt.preventDefault();
-    currentName.textContent = nameInput.value;
-    currentRole.textContent = jobInput.value;
-    closeModalWindow(formWindowEdit);
-}
-
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
-
-const openEditProfilePopup = () => {
-    formElementEditValidator.resetWholeForm();
-    openModalWindow(formWindowEdit);
-    nameInput.value = currentName.textContent;
-    jobInput.value = currentRole.textContent;
-}
 
 buttonCancelEdit.addEventListener("click", () => {
     closeModalWindow(formWindowEdit);
 });
+
 buttonEdit.addEventListener('click', openEditProfilePopup);
 
 //Popup form for Add button
@@ -76,12 +61,6 @@ buttonCancelView.addEventListener("click", () => {
     closeModalWindow(formWindowViewer);
 });
 
-const openImagePreview = (text, link) => {
-    openModalWindow(formWindowViewer);
-    viewPlaceName.innerText = text;
-    viewPlaceImg.src = link;
-    viewPlaceImg.alt = `Photo of ${text}`;
-}
 
 //Creating list items with JS
 const initialCards = [
@@ -112,7 +91,7 @@ const initialCards = [
 ];
 //Creating add new card function
 
-function createNewCard(name, link) {
+const  createNewCard = (name, link) => {
     const card = new Card(name,link, "#card", () => (
         openImagePreview(name, link)
         ))
@@ -127,8 +106,8 @@ const createInitialCards = () => {
 createInitialCards();
 
 // const formElementAddValidator = formValidator(formElementAdd, settingsValidator);
-const formElementAddValidator = new FormValidator(settingsValidator, formElementAdd);
+export const formElementAddValidator = new FormValidator(settingsValidator, formElementAdd);
 formElementAddValidator.enableValidation();
 
-const formElementEditValidator = new FormValidator(settingsValidator, formElementEdit);
+export const formElementEditValidator = new FormValidator(settingsValidator, formElementEdit);
 formElementEditValidator.enableValidation();
