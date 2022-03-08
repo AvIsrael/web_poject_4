@@ -1,5 +1,5 @@
 import {closeModalWindow, openModalWindow} from "./modalWindow.js";
-import {formValidator} from "./validate.js";
+import {FormValidator} from "./FormValidate.js";
 import {Card} from "./Card.js"
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
@@ -126,8 +126,9 @@ const createInitialCards = () => {
 }
 createInitialCards();
 
-const formElementAddValidator = formValidator(formElementAdd, settingsValidator);
+// const formElementAddValidator = formValidator(formElementAdd, settingsValidator);
+const formElementAddValidator = new FormValidator(settingsValidator, formElementAdd);
 formElementAddValidator.enableValidation();
 
-const formElementEditValidator = formValidator(formElementEdit, settingsValidator);
+const formElementEditValidator = new FormValidator(settingsValidator, formElementEdit);
 formElementEditValidator.enableValidation();
