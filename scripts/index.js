@@ -1,5 +1,6 @@
 import {closeModalWindow, openModalWindow} from "./modalWindow.js";
 import {formValidator} from "./validate.js";
+import {Card} from "./Card.js"
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
 const formWindowViewer = document.getElementById("popup-viewer");
@@ -110,31 +111,12 @@ const initialCards = [
     }
 ];
 //Creating add new card function
-const cardTemplate = document.getElementById("card").content.querySelector(".elements__item");
-const createNewCard = (name, link) => {
-    const card = cardTemplate.cloneNode(true);
-    const imageElement = card.querySelector(".elements__grid-image");
-    imageElement.src = link;
-    imageElement.alt = `Photo of ${name}`;
-    imageElement.addEventListener('click', () => {
-        openImagePreview(name, link);
-    });
 
-    const cardTitle = card.querySelector(".elements__description");
-    cardTitle.textContent = name;
-
-    const deleteButton = card.querySelector(".elements__button-delete");
-    deleteButton.addEventListener('click', (evt) => {
-        const listItem = evt.target.closest(".elements__item");
-        listItem.remove();
-    });
-
-    const likeButton = card.querySelector(".elements__button-heart");
-    likeButton.addEventListener('click', (evt) => {
-        evt.target.classList.toggle("elements__button-heart_active");
-    });
-
-    return card;
+function createNewCard(name, link) {
+    const card = new Card(name,link, "#card", () => (
+        openImagePreview(name, link)
+        ))
+    return card.generateCard();
 }
 
 const createInitialCards = () => {
