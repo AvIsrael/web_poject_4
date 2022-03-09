@@ -1,8 +1,5 @@
-import {formElementEditValidator, formWindowEdit, formWindowViewer, viewPlaceName, viewPlaceImg} from "./index.js";
-const currentName = document.querySelector(".profile__hero");
-const currentRole = document.querySelector(".profile__role");
-const nameInput = document.getElementById("name");
-const jobInput = document.getElementById("about");
+import {formElementEditValidator, formWindowEdit, formWindowViewer, viewPlaceName, viewPlaceImg,
+    currentName, currentRole, nameInput, jobInput} from "./index.js";
 
 export const openModalWindow = (modalWindow) => {
     modalWindow.classList.add("popup_opened");

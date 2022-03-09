@@ -45,12 +45,8 @@ export class FormValidator {
     };
 
     _setEventListeners() {
-        this._inputList = Array.from(
-            this._formElement.querySelectorAll(this._inputSelector)
-        );
-        this._buttonElement = this._formElement.querySelector(
-            this._submitButtonSelector
-        );
+        this._inputList = this._formElement.querySelectorAll(this._inputSelector);
+        this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._checkInputValidity(inputElement);
@@ -59,7 +55,7 @@ export class FormValidator {
         });
     };
 
-    _resetForm() {
+    _hideValidationMessage() {
         this._inputList = Array.from(
             this._formElement.querySelectorAll(this._inputSelector)
         );
@@ -69,11 +65,9 @@ export class FormValidator {
     };
 
     resetWholeForm() {
-        this._resetForm();
+        this._hideValidationMessage();
         this._toggleButtonState();
-        this._inputList.forEach((inputElement) => {
-            inputElement.value = "";
-        });
+        this._formElement.reset();
     };
 
     enableValidation() {

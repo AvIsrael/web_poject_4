@@ -17,7 +17,10 @@ const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
 export const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
 export const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
-
+export const currentName = document.querySelector(".profile__hero");
+export const currentRole = document.querySelector(".profile__role");
+export const nameInput = document.getElementById("name");
+export const jobInput = document.getElementById("about");
 
 const settingsValidator = {
     formSelector: ".popup__form",
@@ -39,7 +42,6 @@ buttonEdit.addEventListener('click', openEditProfilePopup);
 //Popup form for Add button
 const handleAddCardFormSubmit = (evt) => {
     evt.preventDefault();
-    formElementAddValidator.resetWholeForm();
     closeModalWindow(formWindowAdd);
     cardsContainer.prepend(createNewCard(titleInput.value, imageInput.value));
 }
@@ -89,6 +91,7 @@ const initialCards = [
         link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
 ];
+
 //Creating add new card function
 
 const  createNewCard = (name, link) => {
