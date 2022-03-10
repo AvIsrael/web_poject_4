@@ -1,9 +1,9 @@
-import {closeModalWindow, openModalWindow, handleProfileFormSubmit, openEditProfilePopup, openImagePreview} from "./utils.js";
+import {closeModalWindow, openModalWindow, openImagePreview} from "./utils.js";
 import {FormValidator} from "./FormValidate.js";
 import {Card} from "./Card.js"
 
-export const formWindowEdit = document.getElementById("popup-edit");
-export const formWindowAdd = document.getElementById("popup-add");
+const formWindowEdit = document.getElementById("popup-edit");
+const formWindowAdd = document.getElementById("popup-add");
 export const formWindowViewer = document.getElementById("popup-viewer");
 const buttonEdit = document.querySelector(".profile__button-unusual");
 const buttonAdd = document.querySelector(".profile__button");
@@ -17,10 +17,10 @@ const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
 export const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
 export const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
-export const currentName = document.querySelector(".profile__hero");
-export const currentRole = document.querySelector(".profile__role");
-export const nameInput = document.getElementById("name");
-export const jobInput = document.getElementById("about");
+const currentName = document.querySelector(".profile__hero");
+const currentRole = document.querySelector(".profile__role");
+const nameInput = document.getElementById("name");
+const jobInput = document.getElementById("about");
 
 const settingsValidator = {
     formSelector: ".popup__form",
@@ -30,6 +30,21 @@ const settingsValidator = {
     inputErrorClass: "popup__item_type_error",
     errorClass: "popup__error_visible",
 }
+
+const handleProfileFormSubmit = (evt) => {
+    evt.preventDefault();
+    currentName.textContent = nameInput.value;
+    currentRole.textContent = jobInput.value;
+    closeModalWindow(formWindowEdit);
+}
+
+const openEditProfilePopup = () => {
+    formElementEditValidator.resetWholeForm();
+    openModalWindow(formWindowEdit);
+    nameInput.value = currentName.textContent;
+    jobInput.value = currentRole.textContent;
+}
+
 
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
@@ -57,6 +72,7 @@ buttonCancelAdd.addEventListener('click', () => {
 });
 buttonAdd.addEventListener('click', openAddCardPopup);
 //End of form Add button
+
 
 //Popup Viewer
 buttonCancelView.addEventListener("click", () => {

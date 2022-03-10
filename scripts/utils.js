@@ -1,19 +1,18 @@
-import {formElementEditValidator, formWindowEdit, formWindowViewer, viewPlaceName, viewPlaceImg,
-    currentName, currentRole, nameInput, jobInput} from "./index.js";
+import {formWindowViewer, viewPlaceName, viewPlaceImg} from "./index.js";
 
-export const openModalWindow = (modalWindow) => {
+ export const openModalWindow = (modalWindow) => {
     modalWindow.classList.add("popup_opened");
     document.addEventListener("keydown", closeModalWindowByKey);
     document.addEventListener('mousedown', closeOverlay);
 }
 
-export const closeModalWindow = (modalWindow) => {
+ export const closeModalWindow = (modalWindow) => {
     modalWindow.classList.remove("popup_opened");
     document.removeEventListener("keydown", closeModalWindowByKey);
     document.removeEventListener('mousedown', closeOverlay);
 }
 
-export const openImagePreview = (text, link) => {
+ export const openImagePreview = (text, link) => {
     openModalWindow(formWindowViewer);
     viewPlaceName.innerText = text;
     viewPlaceImg.src = link;
@@ -34,16 +33,3 @@ export const closeModalWindowByKey = (evt) => {
 }
 
 
-export const handleProfileFormSubmit = (evt) => {
-    evt.preventDefault();
-    currentName.textContent = nameInput.value;
-    currentRole.textContent = jobInput.value;
-    closeModalWindow(formWindowEdit);
-}
-
-export const openEditProfilePopup = () => {
-    formElementEditValidator.resetWholeForm();
-    openModalWindow(formWindowEdit);
-    nameInput.value = currentName.textContent;
-    jobInput.value = currentRole.textContent;
-}
