@@ -1,10 +1,10 @@
-import {closeModalWindow, openModalWindow, openImagePreview} from "./utils.js";
+import {closeModalWindow, openModalWindow} from "./utils.js";
 import {FormValidator} from "./FormValidate.js";
 import {Card} from "./Card.js"
 
 const formWindowEdit = document.getElementById("popup-edit");
 const formWindowAdd = document.getElementById("popup-add");
-export const formWindowViewer = document.getElementById("popup-viewer");
+const formWindowViewer = document.getElementById("popup-viewer");
 const buttonEdit = document.querySelector(".profile__button-unusual");
 const buttonAdd = document.querySelector(".profile__button");
 const formElementEdit = document.getElementById("formElementEdit");
@@ -15,8 +15,8 @@ const buttonCancelEdit = formElementEdit.querySelector(".popup__button");
 const buttonCancelAdd = formWindowAdd.querySelector(".popup__button")
 const buttonCancelView = formWindowViewer.querySelector(".popup__button");
 const cardsContainer = document.querySelector(".elements__items");
-export const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
-export const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
+const viewPlaceName = formWindowViewer.querySelector(".popup__viewer-text");
+const viewPlaceImg = formWindowViewer.querySelector(".popup__viewer-image");
 const currentName = document.querySelector(".profile__hero");
 const currentRole = document.querySelector(".profile__role");
 const nameInput = document.getElementById("name");
@@ -45,6 +45,12 @@ const openEditProfilePopup = () => {
     jobInput.value = currentRole.textContent;
 }
 
+const openImagePreview = (text, link) => {
+    openModalWindow(formWindowViewer);
+    viewPlaceName.innerText = text;
+    viewPlaceImg.src = link;
+    viewPlaceImg.alt = `Photo of ${text}`;
+}
 
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
