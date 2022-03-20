@@ -1,0 +1,40 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "> **In *Project #4-7* using HTML (flex, grid, bem), CSS, JS was created:**\r >* Six cards with native javascript;\r >* Popup window for adding new cards to page;\r >* Popup viewer for viewing fullsize images;\r >* Implemented deleting cards on pushing bin icon;\r >* Added function that change state of like icon.\r >* Added function that validate forms...\r >* Added classes for Card and FormValidate\r >* Created separate files for js modules.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvIsrael/web_project_4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AvIsrael/web_project_4/issues"
+  },
+  "homepage": "https://github.com/AvIsrael/web_project_4#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.4",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.4",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^6.2.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "keywords": [],
+  "dependencies": {
+    "core-js": "^3.21.1",
+    "rm": "^0.1.8"
+  }
+}

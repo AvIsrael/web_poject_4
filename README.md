@@ -1,4 +1,4 @@
-# **Web project 4-7**
+# **Web project 4-8**
 ## Around The U.S.  :metal:
 
 > **In *Project #4-7* using HTML (flex, grid, bem), CSS, JS was created:**
@@ -8,8 +8,9 @@
 >* Implemented deleting cards on pushing bin icon;
 >* Added function that change state of like icon.
 >* Added function that validate forms...
->* Added classes for Card and FormValidate
+>* Added separate classes.
 >* Created separate files for js modules.
+>* Created project using webpack, babel, html and css plugins
 
 ### *Added adaptive design for different screen dimensions.* 
 
