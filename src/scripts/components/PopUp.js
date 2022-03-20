@@ -18,7 +18,7 @@ export default class Popup {
             this.close();
         }
     };
-
+//TODO move eventlistener to popup open & close and fix handle submit
     setEventListeners() {
         this._popupElement.addEventListener("mousedown", (evt) => {
             if (

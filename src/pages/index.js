@@ -1,20 +1,21 @@
-import FormValidator from "./scripts/components/FormValidator.js";
-import Card from "./scripts/components/Card.js"
-import Section from "./scripts/components/Section";
-import "./pages/index.css"
+import FormValidator from "../scripts/components/FormValidator.js";
+import Card from "../scripts/components/Card.js"
+import Section from "../scripts/components/Section";
+import "./index.css"
 import {
-    buttonAdd,
-    buttonEdit,
-    formElementAdd,
-    formElementEdit,
     initialCards,
-    jobInput,
-    nameInput,
     settingsValidator
-} from "./scripts/utils/constants"
-import PopupWithForm from "./scripts/components/PopupWithForms";
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
-import UserInfo from "./scripts/components/UserInfo.js";
+} from "../scripts/utils/constants"
+import PopupWithForm from "../scripts/components/PopupWithForms";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+
+const buttonEdit = document.querySelector(".profile__button-unusual");
+const buttonAdd = document.querySelector(".profile__button");
+const formElementEdit = document.getElementById("formElementEdit");
+const formElementAdd = document.getElementById("formElementAdd");
+const nameInput = document.getElementById("name");
+const jobInput = document.getElementById("about");
 
 const userInfo = new UserInfo({
     userNameSelector: ".profile__hero",
@@ -39,8 +40,8 @@ addCardPopup.setEventListeners();
 
 imagePopup.setEventListeners();
 
-function handleProfileFormSubmit(DataUsers) {
-    userInfo.setUserInfo(DataUsers);
+function handleProfileFormSubmit(dataUsers) {
+    userInfo.setUserInfo(dataUsers);
     editPopup.close();
 }
 
@@ -63,8 +64,8 @@ export const formElementEditValidator = new FormValidator(settingsValidator, for
 formElementEditValidator.enableValidation();
 
 
-function handleAddCardFormSubmit(DataImages) {
-    cardList.addItem(DataImages.title, DataImages['image-link']);
+function handleAddCardFormSubmit(dataImages) {
+    cardList.addItem(dataImages.title, dataImages['image-link']);
     addCardPopup.close();
 }
 

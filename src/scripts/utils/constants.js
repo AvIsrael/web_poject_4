@@ -1,10 +1,3 @@
-export const buttonEdit = document.querySelector(".profile__button-unusual");
-export const buttonAdd = document.querySelector(".profile__button");
-export const formElementEdit = document.getElementById("formElementEdit");
-export const formElementAdd = document.getElementById("formElementAdd");
-export const nameInput = document.getElementById("name");
-export const jobInput = document.getElementById("about");
-
 export const settingsValidator = {
     formSelector: ".popup__form",
     inputSelector: ".popup__item",

@@ -15,17 +15,16 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._element
-            .querySelector(".elements__button-delete")
-            .addEventListener("click", this._handleDeleteButton);
-        this._element
-            .querySelector(".elements__button-heart")
-            .addEventListener("click", this._handleLikeButton);
-        this._element
-            .querySelector(".elements__grid-image")
-            .addEventListener("click", () =>
-                this._handleCardClick({name: this._name, src: this._link})
-            );
+        const buttonDelete = this._element.querySelector(".elements__button-delete");
+        buttonDelete.addEventListener("click", this._handleDeleteButton);
+
+        const buttonHeart = this._element.querySelector(".elements__button-heart");
+        buttonHeart.addEventListener("click", this._handleLikeButton);
+
+        const cardImage = this._element.querySelector(".elements__grid-image");
+        cardImage.addEventListener("click", () =>
+            this._handleCardClick({name: this._name, src: this._link})
+        );
     }
 
     _handleDeleteButton = () => {
