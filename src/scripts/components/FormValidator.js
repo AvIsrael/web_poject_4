@@ -59,6 +59,7 @@ export default class FormValidator {
         this._inputList = Array.from(
             this._formElement.querySelectorAll(this._inputSelector)
         );
+        console.log(this._inputList)
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         });

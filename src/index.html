@@ -4,23 +4,24 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Around The U.S.</title>
-    <link rel="stylesheet" href="pages/index.css"/>
 </head>
 <body class="page">
 <div class="wrapper">
+
     <header class="header">
         <img src="<%=require('./images/header-logo.svg')%>" alt="logo image" class="header__logo"/>
     </header>
+
     <main class="content">
         <section class="profile">
-            <div class="profile__avatar"></div>
+            <div class="profile__avatar popup__image-overlay"></div>
             <div class="profile__info">
                 <div class="profile__content">
-                    <h1 class="profile__hero">Jacques Cousteau</h1>
+                    <h1 class="profile__hero"></h1>
                     <button class="button profile__button-unusual" type="button" aria-label="edit">
                     </button>
                 </div>
-                <p class="profile__role">Explorer</p>
+                <p class="profile__role"></p>
             </div>
             <button class="button profile__button" type="button" aria-label="add">
             </button>
@@ -29,6 +30,7 @@
             <ul class="elements__items"></ul>
         </section>
     </main>
+
     <div class="popup" id="popup-edit">
         <div class="popup__container">
             <h2 class="popup__title">Edit profile</h2>
@@ -37,7 +39,7 @@
                        minlength="2"
                        maxlength="40" required/>
                 <span class="popup__error name-error"></span>
-                <input type="text" class="popup__item" id="about" name="job"
+                <input type="text" class="popup__item" id="about" name="about"
                        placeholder="About me" minlength="2"
                        maxlength="200" required/>
                 <span class="popup__error about-error"></span>
@@ -46,6 +48,7 @@
             </form>
         </div>
     </div>
+
     <div class="popup" id="popup-add">
         <div class="popup__container">
             <h2 class="popup__title">New Place</h2>
@@ -78,15 +81,36 @@
                 <button class="elements__button-heart" type="button"></button>
             </div>
             <button class="elements__button-delete button" type="button"></button>
+            <span class="elements__amount-likes" style="width: 10px; height: 10px;"></span>
         </li>
     </template>
+
+    <div class="popup" id="popup-delete">
+        <div class="popup__container">
+            <h2 class="popup__title">Are you sure?</h2>
+            <form class="popup__form" name="you-sure" action="#" method="get" novalidate>
+                <input type="submit" class="popup__button-sbmt" value="Yes"/>
+                <button class="button-reset popup__button popup__btn-cancel" type="button" aria-label="cancel"></button>
+            </form>
+        </div>
+    </div>
     <footer class="footer">
         <p class="footer__copyright">&#64; 2021 Around The U.S.</p>
     </footer>
 </div>
 
-<script type="module" src="pages/index.js"></script>
-
+<div class="popup" id="popup-profile-image">
+    <div class="popup__container">
+        <h2 class="popup__title">Change profile picture</h2>
+        <form class="popup__form" id="formElementImage" name="profile-image" action="#"
+              method="get" novalidate>
+            <input type="url" class="popup__item" id="image-input" name="avatar" placeholder="Image Link" required/>
+            <span class="popup__error image-input-error"></span>
+            <input type="submit" class="popup__button-sbmt popup__button-sbmt_disabled" value="Save"/>
+            <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

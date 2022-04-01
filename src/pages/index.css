@@ -14,6 +14,7 @@
 @import url(../blocks/profile/__role/profile__role.css);
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__button-unusual/profile__button-unusual.css);
+@import url(../blocks/profile/__image-overlay/profile__image-overlay.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -30,6 +31,7 @@
 @import url(../blocks/elements/__button-heart/elements__button-heart.css);
 @import url(../blocks/elements/__button-heart/_active/elements__button-heart_active.css);
 @import url(../blocks/elements/__button-delete/elements__button-delete.css);
+@import url(../blocks/elements/__amount-likes/elements__amount-likes.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/__viewer-image/popup__viewer-image.css);

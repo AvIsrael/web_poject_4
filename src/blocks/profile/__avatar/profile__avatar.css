@@ -1,5 +1,5 @@
 .profile__avatar {
-    content: url("../../../images/profile-image.jpg");
+    /*content: url("../../../images/profile-image.jpg");*/
     height: 120px;
     width: 120px;
     border-radius: 50%;
