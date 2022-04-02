@@ -6,8 +6,10 @@
     height: 40px;
     width: 40px;
     color: transparent;
-    top: calc(50% - 205px);
-    right: calc(50% - 255px);
+    top:-50px;
+    right: -50px;
+    /*top: calc(50% - 205px);*/
+    /*right: calc(50% - 255px);*/
     cursor: pointer;
 }
 

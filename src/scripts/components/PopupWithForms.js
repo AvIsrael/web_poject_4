@@ -20,10 +20,6 @@ export default class PopupWithForm extends Popup {
         return inputValues;
     }
 
-    formReset() {
-        this._popupForm.reset();
-    }
-
     showMessageLoading() {
         this._buttonSubmit.value = "Saving...";
     }

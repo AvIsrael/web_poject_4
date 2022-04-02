@@ -66,8 +66,8 @@
                        required/>
                 <span class="popup__error image-link-error"></span>
                 <input type="submit" class="popup__button-sbmt popup__button-sbmt_disabled" value="Save"/>
-                <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
             </form>
+            <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
         </div>
     </div>
     <div class="popup" id="popup-viewer">
@@ -86,10 +86,8 @@
                     <button class="elements__button-heart" type="button"></button>
                     <span class="elements__amount-likes"></span>
                 </div>
-
             </div>
             <button class="elements__button-delete button" type="button"></button>
-
         </li>
     </template>
 
@@ -97,28 +95,29 @@
         <div class="popup__container">
             <h2 class="popup__title">Are you sure?</h2>
             <form class="popup__form" name="you-sure" action="#" method="get" novalidate>
-                <input type="submit" class="popup__button-sbmt" value="Yes"/>
-                <button class="button-reset popup__button popup__btn-cancel" type="button" aria-label="cancel"></button>
+                <input type="submit" class="popup__button-sbmt popup__button-sbmt_delete" value="Yes"/>
+                <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
             </form>
         </div>
     </div>
     <footer class="footer">
         <p class="footer__copyright">&#64; 2021 Around The U.S.</p>
     </footer>
-</div>
-
-<div class="popup" id="popup-profile-image">
-    <div class="popup__container">
-        <h2 class="popup__title">Change profile picture</h2>
-        <form class="popup__form" id="formElementImage" name="profile-image" action="#"
-              method="get" novalidate>
-            <input type="url" class="popup__item" id="image-input" name="avatar" placeholder="Image Link" required/>
-            <span class="popup__error image-input-error"></span>
-            <input type="submit" class="popup__button-sbmt popup__button-sbmt_disabled" value="Save"/>
-            <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
-        </form>
+    <div class="popup" id="popup-profile-image">
+        <div class="popup__container">
+            <h2 class="popup__title">Change profile picture</h2>
+            <form class="popup__form" id="formElementImage" name="profile-image" action="#"
+                  method="get" novalidate>
+                <input type="url" class="popup__item" id="image-input" name="avatar" placeholder="Image Link" required/>
+                <span class="popup__error image-input-error"></span>
+                <input type="submit" class="popup__button-sbmt popup__button-sbmt_disabled" value="Save"/>
+                <button class="button-reset popup__button" type="button" aria-label="cancel"></button>
+            </form>
+        </div>
     </div>
 </div>
+
+
 
 </body>
 </html>

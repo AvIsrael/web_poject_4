@@ -15,7 +15,7 @@ const buttonEdit = document.querySelector(".profile__button-unusual");
 const buttonAdd = document.querySelector(".profile__button");
 const formElementEdit = document.getElementById("formElementEdit");
 const formElementAdd = document.getElementById("formElementAdd");
-const formElementImage= document.getElementById("formElementImage");
+const formElementImage = document.getElementById("formElementImage");
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");
 const profileImageOverlay = document.querySelector(".profile__image-overlay")
@@ -57,14 +57,13 @@ function handleProfileFormSubmit(dataUsers) {
         .editProfile(dataUsers)
         .then((res) => {
             userInfo.setUserInfo(res);
-            editPopup.formReset();
             editPopup.close();
         })
         .catch((err) => {
             console.log(`Error: ${err}`);
         })
         .finally(() => {
-
+            editPopup.hideMessageLoading();
         });
 }
 
@@ -78,7 +77,6 @@ function handleEditButton() {
 }
 
 buttonEdit.addEventListener("click", handleEditButton);
-
 export const formElementAddValidator = new FormValidator(settingsValidator, formElementAdd);
 formElementAddValidator.enableValidation();
 
@@ -88,17 +86,16 @@ formElementEditValidator.enableValidation();
 export const formElementImageValidator = new FormValidator(settingsValidator, formElementImage);
 formElementImageValidator.enableValidation();
 
+
 function handleAddCardFormSubmit(dataImages) {
     addCardPopup.showMessageLoading();
     const data = {
-        name: dataImages.title,
-        link: dataImages['image-link'],
+        name: dataImages.title, link: dataImages['image-link'],
     };
     api
         .createCard(data)
         .then((res) => {
             cardList.addItem(res.name, res.link, res._id, res.owner._id, res.likes);
-            addCardPopup.formReset();
             addCardPopup.close();
         })
         .catch((err) => {
@@ -113,6 +110,7 @@ function handleAddButton() {
     addCardPopup.open();
     formElementAddValidator.resetWholeForm();
 }
+
 buttonAdd.addEventListener("click", handleAddButton);
 
 const cardList = new Section({
@@ -120,8 +118,7 @@ const cardList = new Section({
         const card = new Card(name, link, id, ownerId, userId, likes, "#card", {
             handleCardClick: () => {
                 imagePopup.open(name, link);
-            },
-            handleDeleteCard: (id) => {
+            }, handleDeleteCard: (id) => {
                 deletePopup.open();
                 deletePopup.setAction(() => {
                     deletePopup.showMessageLoading();
@@ -138,8 +135,7 @@ const cardList = new Section({
                             deletePopup.hideMessageLoading();
                         });
                 });
-            },
-            handleLikeButton: (id) => {
+            }, handleLikeButton: (id) => {
                 const isAlreadyLiked = card.isLiked();
                 if (isAlreadyLiked) {
                     api
@@ -177,9 +173,9 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
         userInfo.setAvatar({avatar: userData.avatar});
         cardList.renderItems(cardData.reverse());
     })
-.catch((err) => {
-    console.log(`Error: ${err}`);
-});
+    .catch((err) => {
+        console.log(`Error: ${err}`);
+    });
 
 function handleProfileImageClick() {
     profileImagePopup.open();
@@ -188,13 +184,13 @@ function handleProfileImageClick() {
 }
 
 profileImageOverlay.addEventListener("click", handleProfileImageClick);
+
 function handleImageFormSubmit(userData) {
     profileImagePopup.showMessageLoading();
     api
         .editAvatar(userData)
         .then((res) => {
             userInfo.setAvatar(res);
-            profileImagePopup.formReset();
             profileImagePopup.close();
         })
         .catch((err) => {

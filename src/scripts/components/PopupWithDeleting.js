@@ -11,6 +11,7 @@ export class PopupWithDeleting extends Popup {
     }
 
     setEventListeners() {
+        super.setEventListeners();
         this._popupElement.addEventListener("submit", (evt) => {
             evt.preventDefault();
             this._handleSubmit();
@@ -18,10 +19,10 @@ export class PopupWithDeleting extends Popup {
     }
 
     showMessageLoading() {
-        this._inputSubmit.value = "Saving...";
+        this._inputSubmit.value = "Deleting...";
     }
 
     hideMessageLoading() {
-        this._inputSubmit.value = "Saved";
+        this._inputSubmit.value = "Yes";
     }
 }

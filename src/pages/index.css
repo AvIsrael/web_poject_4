@@ -23,6 +23,7 @@
 @import url(../blocks/popup/__item/popup__item.css);
 @import url(../blocks/popup/__button-sbmt/popup__button-sbmt.css);
 @import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__button-sbmt/_type/popup__button-sbmt_delete.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__items/elements__items.css);
 @import url(../blocks/elements/__item/elements__item.css);
