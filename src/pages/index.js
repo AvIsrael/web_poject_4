@@ -18,7 +18,7 @@ const formElementAdd = document.getElementById("formElementAdd");
 const formElementImage= document.getElementById("formElementImage");
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");
-const profileImageOverlay = document.querySelector(".profile__avatar")
+const profileImageOverlay = document.querySelector(".profile__image-overlay")
 
 const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-12", headers: {

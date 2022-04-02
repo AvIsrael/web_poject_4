@@ -14,7 +14,11 @@
 
     <main class="content">
         <section class="profile">
-            <div class="profile__avatar popup__image-overlay"></div>
+            <div class="profile__image">
+                <div class="profile__avatar"></div>
+                <div class="profile__image-overlay"></div>
+            </div>
+
             <div class="profile__info">
                 <div class="profile__content">
                     <h1 class="profile__hero"></h1>
@@ -78,10 +82,14 @@
             <img class="elements__grid-image" src="#" alt="#">
             <div class="elements__info">
                 <h2 class="elements__description"></h2>
-                <button class="elements__button-heart" type="button"></button>
+                <div class="elements__likes-zone">
+                    <button class="elements__button-heart" type="button"></button>
+                    <span class="elements__amount-likes"></span>
+                </div>
+
             </div>
             <button class="elements__button-delete button" type="button"></button>
-            <span class="elements__amount-likes" style="width: 10px; height: 10px;"></span>
+
         </li>
     </template>
 

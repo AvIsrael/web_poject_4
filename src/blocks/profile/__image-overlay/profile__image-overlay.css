@@ -10,11 +10,11 @@
     left: 0;
     z-index: 1;
     opacity: 0;
-    background-color: rgba(0, 0, 0, 0.8);
     transform: scale(1.1);
     transition: visibility 0.5s, opacity 0.5s linear;
-
-    background-image: url(../../../images/button-edit.svg);
+    /*background: rgba(0, 0, 0, 0.8) url(../../../images/button-edit.svg)  no-repeat 50px center;*/
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url(../../../images/button-editV2.svg);
     background-size: 20%;
     background-position: center;
     background-repeat: no-repeat;
